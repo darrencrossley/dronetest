@@ -1,0 +1,97 @@
+$ ~/Downloads/drone7 exec
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.utf8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/postgresql/data ... ok
+creating subdirectories ... ok
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting dynamic shared memory implementation ... posix
++ bin/wait-for-postgres.sh
+[INFO] Waiting for postgres
+psql: could not connect to server: Connection refused
+  Is the server running on host "database" (172.25.0.2) and accepting
+  TCP/IP connections on port 5432?
+still trying!
+creating configuration files ... ok
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+psql: could not connect to server: Connection refused
+  Is the server running on host "database" (172.25.0.2) and accepting
+  TCP/IP connections on port 5432?
+still trying!
+syncing data to disk ... ok
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgresql/data -l logfile start
+
+
+WARNING: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+****************************************************
+WARNING: No password has been set for the database.
+         This will allow anyone with access to the
+         Postgres port to access your database. In
+         Docker's default configuration, this is
+         effectively any other container on the same
+         system.
+
+         Use "-e POSTGRES_PASSWORD=password" to set
+         it in "docker run".
+****************************************************
+waiting for server to start....LOG:  database system was shut down at 2017-06-01 20:07:52 UTC
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+psql: could not connect to server: Connection refused
+  Is the server running on host "database" (172.25.0.2) and accepting
+  TCP/IP connections on port 5432?
+still trying!
+ done
+server started
+CREATE DATABASE
+
+ALTER ROLE
+
+
+/usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+
+LOG:  received fast shutdown request
+waiting for server to shut down....LOG:  aborting any active transactions
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+psql: could not connect to server: Connection refused
+  Is the server running on host "database" (172.25.0.2) and accepting
+  TCP/IP connections on port 5432?
+still trying!
+ done
+server stopped
+
+PostgreSQL init process complete; ready for start up.
+
+LOG:  database system was shut down at 2017-06-01 20:07:53 UTC
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+[INFO] Postgres ready
++ psql -U postgres -d test -h database -p 5432 -c "CREATE TABLE person( NAME TEXT );"
+CREATE TABLE
++ psql -U postgres -d test -h database -p 5432 -c "INSERT INTO person VALUES('john smith');"
+INSERT 0 1
++ psql -U postgres -d test -h database -p 5432 -c "INSERT INTO person VALUES('jane doe');"
+INSERT 0 1
++ psql -U postgres -d test -h database -p 5432 -c "SELECT * FROM person;"
+    name
+------------
+ john smith
+ jane doe
+(2 rows)

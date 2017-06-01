@@ -1,8 +1,6 @@
 #!/bin/bash
-echo "[INFO] Initial Wait"
-sleep 30
 echo "[INFO] Waiting for postgres"
-until psql -h "postgres" --username="postgres"; do
+until psql -U postgres -d test -h database -p 5432; do
   >&2 printf "still trying! \n"
   sleep 1
 done

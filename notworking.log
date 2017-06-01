@@ -1,0 +1,107 @@
+$ ~/Downloads/drone7 exec
+The files belonging to this database system will be owned by user "postgres".
+This user must also own the server process.
+
+The database cluster will be initialized with locale "en_US.utf8".
+The default database encoding has accordingly been set to "UTF8".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/postgresql/data ... ok
+creating subdirectories ... ok
+selecting default max_connections ... 100
+selecting default shared_buffers ... 128MB
+selecting dynamic shared memory implementation ... posix
+creating configuration files ... ok
+running bootstrap script ... ok
++ bin/wait-for-postgres.sh
+[INFO] Waiting for postgres
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+performing post-bootstrap initialization ... ok
+syncing data to disk ... ok
+
+Success. You can now start the database server using:
+
+    pg_ctl -D /var/lib/postgresql/data -l logfile start
+
+
+WARNING: enabling "trust" authentication for local connections
+You can change this by editing pg_hba.conf or using the option -A, or
+--auth-local and --auth-host, the next time you run initdb.
+****************************************************
+WARNING: No password has been set for the database.
+         This will allow anyone with access to the
+         Postgres port to access your database. In
+         Docker's default configuration, this is
+         effectively any other container on the same
+         system.
+
+         Use "-e POSTGRES_PASSWORD=password" to set
+         it in "docker run".
+****************************************************
+waiting for server to start....LOG:  database system was shut down at 2017-06-01 20:02:38 UTC
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+ done
+server started
+CREATE DATABASE
+
+ALTER ROLE
+
+
+/usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+
+LOG:  received fast shutdown request
+LOG:  aborting any active transactions
+waiting for server to shut down....LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+ done
+server stopped
+
+PostgreSQL init process complete; ready for start up.
+
+LOG:  database system was shut down at 2017-06-01 20:02:39 UTC
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  autovacuum launcher started
+LOG:  database system is ready to accept connections
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
+^Cctrl+c received, terminating process
+psql: could not translate host name "database" to address: Name or service not known
+still trying!
